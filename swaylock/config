@@ -1,0 +1,43 @@
+# Solarized Dark Theme for Swaylock
+daemonize
+show-failed-attempts
+clock
+indicator-radius=100
+indicator-thickness=7
+
+# Renkler (ARGB biçiminde)
+color=002b36
+font=JetBrainsMono Nerd Font Mono
+
+# İç Daire Renkleri
+inside-color=002b36
+inside-clear-color=002b36
+inside-caps-lock-color=002b36
+inside-ver-color=002b36
+inside-wrong-color=002b36
+
+# Dış Halka (Ring) Renkleri
+ring-color=268bd2
+ring-clear-color=2aa198
+ring-caps-lock-color=cb4b16
+ring-ver-color=586e75
+ring-wrong-color=dc322f
+
+# Çizgi Renkleri
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+# Metin Renkleri
+text-color=eee8d5
+text-clear-color=2aa198
+text-caps-lock-color=cb4b16
+text-ver-color=586e75
+text-wrong-color=dc322f
+
+# Klavye İpuçları (Key Highlights)
+key-hl-color=d33682
+bs-hl-color=dc322f
+separator-color=00000000

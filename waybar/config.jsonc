@@ -1,0 +1,88 @@
+{
+    "spacing": 5,
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "clock#time"
+    ],
+    "modules-right": [
+        "power-profiles-daemon",
+        "pulseaudio",
+        "temperature",
+        "battery",
+        "tray"
+    ],
+    "clock#time": {
+        "format": "{:%H\n%M}",
+        "tooltip": true,
+        "justify": "center",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "locale": "C",
+        "calendar": {
+            "mode": "month",
+            "iso8601": true,
+            "format": {
+                "today": "<span color=\"#2aa198\"><b>{}</b></span>"
+            }
+        }
+    },
+    "pulseaudio": {
+        "format": "<span font_family=\"JetBrainsMono Nerd Font Propo\" size=\"14336\" weight=\"normal\">{icon}</span>\n{volume}%",
+        "format-muted": "<span font_family=\"JetBrainsMono Nerd Font Propo\" size=\"14336\" weight=\"normal\">󰝟</span>",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "scroll-step": 5,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "tooltip": true,
+        "tooltip-format": "{desc}\nVolume: {volume}%",
+        "justify": "center"
+    },
+    "temperature": {
+        "format": "<span font_family=\"JetBrainsMono Nerd Font Propo\" size=\"14336\" weight=\"normal\"></span>\n{temperatureC}°",
+        "format-critical": "<span font_family=\"JetBrainsMono Nerd Font Propo\" size=\"14336\" weight=\"normal\"></span>\n{temperatureC}°",
+        "critical-threshold": 90,
+        "interval": 5,
+        "justify": "center"
+    },
+    "backlight": {
+        "format": "<span font_family=\"JetBrainsMono Nerd Font Propo\" size=\"14336\" weight=\"normal\"></span>\n{percent}%",
+        "justify": "center"
+    },
+    "battery": {
+        "format": "<span font_family=\"JetBrainsMono Nerd Font Propo\" size=\"14336\" weight=\"normal\">{icon}</span>\n{capacity}%",
+        "format-charging": "<span font_family=\"JetBrainsMono Nerd Font Propo\" size=\"14336\" weight=\"normal\"></span>\n{capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "interval": 10,
+        "tooltip": true,
+        "tooltip-format": "{capacity}%\n{timeTo}",
+        "justify": "center"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 6
+    },
+    "power-profiles-daemon": {
+        "format": "<span font_family=\"JetBrainsMono Nerd Font Propo\" size=\"14336\" weight=\"normal\">{icon}</span>",
+        "tooltip-format": "Power Profiles: {profile}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "position": "left",
+    "width": 64
+}

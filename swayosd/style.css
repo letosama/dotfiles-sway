@@ -1,0 +1,38 @@
+window {
+    background-color: rgba(0, 43, 54, 0.95);
+    border: 2px solid #268bd2;
+    border-radius: 12px;
+}
+
+#container {
+    margin: 16px;
+}
+
+image {
+    color: #eee8d5;
+}
+
+/* Yüzde metninin görünürlüğünü zorlayan resmi SwayOSD etiketi */
+label, #label {
+    color: #eee8d5;
+    font-family: "JetBrainsMono Nerd Font Mono", monospace;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 12px;
+}
+
+progressbar:disabled,
+progress,
+trough {
+    min-height: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+trough {
+    background-color: #073642;
+}
+
+progress {
+    background-color: #268bd2;
+}

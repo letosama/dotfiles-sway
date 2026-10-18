@@ -1,0 +1,153 @@
+set $mod Mod4
+####### autostart ########
+
+exec waybar & nm-applet & mako & swayosd-server
+exec thunderbird & telegram-desktop
+exec systemctl --user start sway-session.target
+exec swaybg -i /home/leto/Pictures/Gemini_Generated_Image_a540n7a540n7a540.jpg
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+
+for_window [app_id="org.mozilla.Thunderbird"] move container to workspace number 9
+for_window [class="Spotify"] move container to workspace number 10
+
+# Monitor setup
+#output "Dell Inc. DELL E1912H 2N00N2660BQB" mode 1366x768@59.790Hz position 0,0
+#output eDP-1 mode 1920x1080@59.999Hz position 1366,0 scale 1.25
+
+######## keyboard and touchpad setting ######## 
+
+input type:keyboard {
+	xkb_layout tr
+}
+
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+
+######## shortcuts ######## 
+
+bindsym $mod+Return exec kitty
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec rofi -show drun -theme ~/.config/rofi/dracula.rasi
+
+bindsym $mod+w exec firefox
+
+bindsym $mod+n exec thunar
+
+bindsym $mod+s exec spotify-launcher
+
+floating_modifier $mod normal
+
+bindsym $mod+Shift+r reload
+
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+bindsym $mod+e layout toggle split
+
+bindsym $mod+f fullscreen
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
+
+bindsym Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+
+# Audio & Brightness Controls via SwayOSD
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume lower
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
+
+bindsym $mod+Home exec playerctl previous
+bindsym $mod+End exec playerctl play-pause
+bindsym $mod+Insert exec playerctl next
+
+bindsym $mod+b exec kitty -e bluetui
+
+bindsym $mod+g exec thunderbird
+ 
+####### theme ########
+
+font pango: 0xProto Nerd Font 11
+
+gaps inner 2
+gaps outer 2
+default_border pixel 2
+default_floating_border pixel 2
+
+# Dracula Color Palette
+set $bg     #282a36
+set $cl     #44475a
+set $fg     #f8f8f2
+set $comment #6272a4
+set $cyan   #8be9fd
+set $green  #50fa7b
+set $orange #ffb86c
+set $pink   #ff79c6
+set $purple #bd93f9
+set $red    #ff5555
+set $yellow #f1fa8c
+
+# Target                 Border  BG      Text    Indicator Child Border
+client.focused           $purple $purple $fg     $pink     $purple
+client.focused_inactive  $cl     $cl     $fg     $cl       $cl
+client.unfocused         $bg     $bg     $comment $bg       $bg
+client.urgent            $red    $red    $fg     $red      $red
+client.placeholder       $bg     $bg     $fg     $bg       $bg
+
+client.background        $bg
+
+####### other ########
+
+bindswitch --reload --locked lid:on exec swaylock -C ~/.config/swaylock/config
+
+include /etc/sway/config.d/50-systemd-user.conf

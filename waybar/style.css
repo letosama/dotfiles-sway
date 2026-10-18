@@ -1,0 +1,207 @@
+/* Solarized Dark Theme for Waybar */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font Mono", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #002b36;
+    color: #eee8d5;
+}
+
+/* Workspace and clock modules. */
+
+#clock.time,
+#clock.calendar {
+    background-color: #268bd2;
+    color: #002b36;
+    padding: 0 12px;
+    margin: 3px 0 3px 5px;
+    border-radius: 6px;
+}
+
+#workspaces {
+    background-color: #073642;
+    margin: 3px 5px;
+    border-radius: 6px;
+    padding: 0;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: #eee8d5;
+    border-radius: 6px;
+    margin: 0;
+    border: none;
+}
+
+#workspaces button.focused {
+    background-color: #d33682;
+    color: #002b36;
+    border-radius: 6px;
+}
+
+#workspaces button.urgent {
+    background-color: #dc322f;
+    color: #eee8d5;
+    border-radius: 6px;
+}
+
+#workspaces button:hover {
+    background-color: #586e75;
+    color: #eee8d5;
+}
+
+/* System status modules. */
+
+#pulseaudio,
+#temperature,
+#backlight,
+#battery,
+#tray {
+    padding: 0 10px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    background-color: #073642;
+    color: #eee8d5;
+}
+
+
+#power-profiles-daemon {
+    padding: 0 10px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    background-color: #073642;
+    color: #eee8d5;
+}
+/* Module accent colors. */
+
+#pulseaudio {
+    color: #63c9bd;
+}
+
+#pulseaudio.muted {
+    background-color: #dc322f;
+    color: #eee8d5;
+}
+
+#temperature {
+    color: #ef9966;
+}
+
+#temperature.critical {
+    background-color: #dc322f;
+    color: #eee8d5;
+}
+
+#backlight {
+    color: #e5b94b;
+}
+
+#battery {
+    color: #b3c94d;
+}
+
+#battery.charging {
+    color: #63c9bd;
+}
+
+#battery.warning:not(.charging) {
+    color: #ef9966;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #dc322f;
+    color: #eee8d5;
+}
+
+#tray {
+    background-color: #002b36;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #dc322f;
+}
+
+#power-profiles-daemon.performance {
+    color: #ff8073; /* Solarized Dark Red */
+}
+
+#power-profiles-daemon.balanced {
+    color: #63c9bd; /* Solarized Dark Cyan */
+}
+
+#power-profiles-daemon.power-saver {
+    color: #b3c94d; /* Solarized Dark Green */
+}
+
+/* Keep the icon-only module proportional to the text. */
+#power-profiles-daemon {
+    font-size: 16px;
+}
+
+/* Vertical layout. */
+* { min-width: 0; }
+window#waybar { font-size: 13px; }
+#workspaces { margin: 5px 4px; }
+#workspaces button { padding: 4px 0; min-height: 24px; }
+#clock.time, #clock.calendar {
+    margin: 3px 4px;
+    padding: 7px 0;
+    font-size: 14px;
+}
+#pulseaudio, #temperature, #backlight, #battery,
+#power-profiles-daemon {
+    margin: 2px 4px;
+    padding: 5px 0;
+    font-size: 12px;
+}
+#power-profiles-daemon { font-size: 16px; }
+#tray { margin: 4px; padding: 3px 0; }
+
+/* Readable labels and correctly proportioned icons. */
+#clock.time, #clock.calendar {
+    font-family: "JetBrainsMono Nerd Font Mono";
+    font-size: 13px;
+    font-weight: normal;
+    padding: 10px 2px;
+}
+#pulseaudio, #temperature, #battery, #backlight {
+    font-weight: normal;
+    padding: 7px 2px;
+}
+#power-profiles-daemon { padding: 8px 0; }
+
+/* Compact vertical bar with larger, readable text. */
+#clock.time {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 0;
+    margin: 3px 4px;
+}
+#pulseaudio, #temperature, #battery, #backlight {
+    font-size: 15px;
+    font-weight: normal;
+    padding: 7px 0;
+    margin: 2px 4px;
+}
+#workspaces button { font-size: 16px; }
+
+/* Bold labels in the compact vertical bar. */
+#clock.time, #workspaces button, #pulseaudio, #temperature,
+#battery, #backlight, #power-profiles-daemon {
+    font-weight: bold;
+}
+
+/* Subtle transparency without fading text or icons. */
+window#waybar { background-color: rgba(0, 43, 54, 0.85); }
